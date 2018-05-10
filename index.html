@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+	</head>
+	<body onload="load(), ButtonHider()">
+		<button class="knap" onclick="tryk(1)">Click Me!</button>
+		<br />
+		attacks: <span id="attacks">0</span>
+        
+		<br /><br /><br /><br />
+        
+        <div id="Autohitter" style="display: none">
+		<button class="knap" onclick="buy_auto_1()">Buy autohitter</button>
+		<br />
+		Autohitters: <span id="amount_autohitters">0</span>
+		<br />
+		Autohittter cost: <span id="cost_autohitter">10</span>
+		</div>
+        
+		<br /><br /><br /><br /><br />
+		
+		<button class="knap" onclick="save()">Save game</button>
+		
+		<br /><br />
+		
+		<button class="knap" onclick="load()">Load game</button>
+		
+		<br /><br />
+		
+		<button class="knap" onclick="reset()">Reset?!?!?!</button>
+		
+		<script type="text/javascript" src="main.js"></script>
+	</body>
+</html>
