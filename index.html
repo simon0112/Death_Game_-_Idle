@@ -2,22 +2,53 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="style.css" />
 	</head>
-	<body onload="load(), ButtonHider()">
-		<button class="knap" onclick="tryk(1)">Click Me!</button>
+	<body onload="load(),">
+		
+        <div id="MainStory1">
+            You wake up not being able to see anything, you hear a robotic voice, "Integration complete, trial begun". It might be an idea to search for some kind of weapon.<br />
+            <button class="knap" onclick="Search(1)">Search the darkness</button>
+            <br />
+            Darkvision XP: <span id="XP">0</span>
+            
+            <br /><br /><br /><br />
+            
+            <div id="AutoSearch" style="display: none">
+            As your vision gets better, you have an easier time looking around.
+            <br />
+            <button class="knap" onclick="Buy_AutoSearch()">Level up darkvision</button>
+            <br />
+            Darkvision level: <span id="DVLVL">0</span>
+            <br />
+            Darkvision levelup requirement: <span id="DVREQ">0</span>
+            </div>
+            
+        </div>
+        
+        <br /><br /><br /><br /><br /><br />
+        
+        
+        <div id="Attacks" style="display: none">
+        As you find your weapon, you see giant rats!<br />
+        <button class="knap" onclick="tryk(1)">Attack!</button>
 		<br />
-		attacks: <span id="attacks">0</span>
+		Damage Done: <span id="attacks">0</span>
+        
         
 		<br /><br /><br /><br />
         
         <div id="Autohitter" style="display: none">
+        It's so easy attacking, it's like you could do it in your sleep!<br />
 		<button class="knap" onclick="buy_auto_1()">Buy autohitter</button>
 		<br />
 		Autohitters: <span id="amount_autohitters">0</span>
 		<br />
-		Autohittter cost: <span id="cost_autohitter">10</span>
+		Autohittter cost: <span id="cost_autohitters">10</span>
 		</div>
         
+        </div>
+            
 		<br /><br /><br /><br /><br />
+        
 		
 		<button class="knap" onclick="save()">Save game</button>
 		
@@ -30,5 +61,6 @@
 		<button class="knap" onclick="reset()">Reset?!?!?!</button>
 		
 		<script type="text/javascript" src="main.js"></script>
+    
 	</body>
 </html>

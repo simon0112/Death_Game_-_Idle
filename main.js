@@ -1,5 +1,39 @@
 //Foreground Processes
 var attacks = 0;
+var XP = 0;
+
+//Search the darkness
+function Search(number) {
+    XP = XP + number/5;
+    document.getElementById("XP").innerHTML = prettify(XP);
+    
+    if (XP >= 2) {
+        AutoSearchShower();
+    }
+    
+    if (XP >= 10) {
+        AttackShower();
+    }
+}
+
+var DVLVL = 0;
+var DVREQ = 2;
+
+// buy autosearches. 
+function Buy_AutoSearch() {
+    var DVREQ = Math.floor(2 * Math.pow(1.08, DVLVL));
+    if (XP >= DVREQ) {
+        DVLVL = DVLVL + 1;
+        XP = XP - DVREQ;
+        document.getElementById("DVREQ").innerHTML = prettify(DVREQ);
+        document.getElementById("DVLVL").innerHTML = DVLVL;
+    }
+}
+
+//auto calls function every 100ms 
+window.setInterval(function () {
+    Search(DVLVL/10);
+}, 100)
 
 //Attack
 function tryk(number) {
@@ -52,6 +86,33 @@ window.setInterval(function () {
 
 
 //Background Processes
+
+
+function AutoSearchShower() {
+    //get the button
+    var AutoSearch = document.getElementById('AutoSearch');
+    
+    //get buttons display property
+    var AutoSearchDisplay = AutoSearch.style.display;
+    
+    if (AutoSearchDisplay == 'none') {
+        //If button to buy autohitter is visible hide it.
+        AutoSearch.style.display = 'block';
+    }
+}
+
+function AttackShower() {
+    //get the button
+    var Attacks = document.getElementById('Attacks');
+    
+    //get buttons display property
+    var AttackDisplay = Attacks.style.display;
+    
+    if (AttackDisplay == 'none') {
+        //If button to buy autohitter is visible hide it.
+        Attacks.style.display = 'block';
+    }
+}
 
 function ButtonHider() {
     //get the button
