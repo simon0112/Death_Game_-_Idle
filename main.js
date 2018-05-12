@@ -1,51 +1,92 @@
 //Foreground Processes
-var attacks = 0;
-var XP = 0;
+
+var DVXP = 0;
+var DVLVL = 0;
+var SLVL = 1;
 
 //Search the darkness
 function Search(number) {
-    XP = XP + number/5;
-    document.getElementById("XP").innerHTML = prettify(XP);
+    DVXP = DVXP + number/5;
+    document.getElementById("DVXP").innerHTML = prettify(DVXP);
     
-    if (XP >= 2) {
+    if (DVXP >= 2) {
         AutoSearchShower();
-    }
-    
-    if (XP >= 10) {
-        AttackShower();
-    }
+	}
+	
+	if (DVLVL == 2) {
+        WeaponShower();
+	}
 }
-
-var DVLVL = 0;
-var DVREQ = 2;
 
 // buy autosearches. 
 function Buy_AutoSearch() {
-    var DVREQ = Math.floor(2 * Math.pow(1.08, DVLVL));
-    if (XP >= DVREQ) {
-        DVLVL = DVLVL + 1;
-        XP = XP - DVREQ;
-        document.getElementById("DVREQ").innerHTML = prettify(DVREQ);
+    var DVREQ = Math.floor(2 * Math.pow(1.08, DVLVL));  //finds the level up requirement
+    if (DVXP >= DVREQ) {
+        DVLVL = DVLVL + 1;  //If the Darkvision XP is hagher than the requirement, increase Darkvision level, and decrease Darkvision XP by requirement.
+        DVXP = DVXP - DVREQ;
+        document.getElementById("DVREQ").innerHTML = prettify(DVREQ);   //remove decimals from Darkvision level up requirement.
         document.getElementById("DVLVL").innerHTML = DVLVL;
     }
 }
 
+//Buy next level of search skill
+function Buy_AutoSearch() {
+    var DVREQ = Math.floor(2 * Math.pow(1.08, DVLVL));  //finds the level up requirement
+    if (DVXP >= DVREQ) {
+        DVLVL = DVLVL + 1;  //If the Darkvision XP is hagher than the requirement, increase Darkvision level, and decrease Darkvision XP by requirement.
+        DVXP = DVXP - DVREQ;
+        document.getElementById("DVREQ").innerHTML = prettify(DVREQ);   //remove decimals from Darkvision level up requirement.
+        document.getElementById("DVLVL").innerHTML = DVLVL;
+}    } 
+
 //auto calls function every 100ms 
 window.setInterval(function () {
     Search(DVLVL/10);
-}, 100)
+}, 100) 
+
+
+
+
+
+
+
+//Atack and Weapon
+
+var Damage = 0 //Damage done
+var attacks = 0; //Attack XP from Creatures
+var ALVL = 0; //Attack level
+var ACD = 0; //Attack cooldown
+
+//WeaponChoice
+function WeaponChoice1() {
+    Damage = 6;
+    ACD = 15;
+    AttackShower();
+    WeaponHider();
+}
+
+function WeaponChoice2() {
+    Damage = 2;
+    ACD = 5;
+    AttackShower();
+    WeaponHider();
+}
 
 //Attack
 function tryk(number) {
-    attacks = attacks + number;
-    document.getElementById("attacks").innerHTML = prettify(attacks);
+    attacks = attacks + number/5;   //gets the amount of XP gained from each click.
     
-    if (attacks >= 8) {
-        ButtonShower()
+    Damage = Damage * Math.pow(1.05, ALVL) //Damage increses with attack level
+    
+    
+    
     }
-}
+        
+    if (attacks >= 10) {
+       ButtonShower();
+    }
 
-var amount_autohitters = 0;
+var amount_autohitters = 0; //Atta
 var cost_autohitters = 10;
 
 // buy autohitters. 
@@ -87,6 +128,23 @@ window.setInterval(function () {
 
 //Background Processes
 
+function WeaponShower() {
+    var WeaponChoiceEvent = document.getElementById('WeaponChoiceEvent');
+    var WeaponChoiceEventDisplay = WeaponChoiceEvent.style.display;
+    
+    if (WeaponChoiceEventDisplay == 'none') {
+        WeaponChoiceEvent.style.display = 'block';
+    }
+}
+
+function WeaponHider() {
+    var WeaponChoiceEvent = document.getElementById('WeaponChoiceEvent');
+    var WeaponChoiceEventDisplay = WeaponChoiceEvent.style.display;
+    
+    if (WeaponChoiceEventDisplay == 'block') {
+        WeaponChoiceEvent.style.display = 'none';
+    }
+}
 
 function AutoSearchShower() {
     //get the button
@@ -192,8 +250,3 @@ function reset() {
     
     document.getElementById("cost_autohitters").innerHTML = cost_autohitters;
 }
-
-// auto saver
-window.setInterval(function () {
-    save();
-}, 2000);
