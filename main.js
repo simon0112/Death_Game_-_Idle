@@ -13,7 +13,7 @@ function Search(number) {
         AutoSearchShower();
 	}
 	
-	if (DVLVL == 2) {
+	if (DVLVL == 2 && Damage == 0) {
         WeaponShower();
 	}
 }
@@ -24,20 +24,10 @@ function Buy_AutoSearch() {
     if (DVXP >= DVREQ) {
         DVLVL = DVLVL + 1;  //If the Darkvision XP is hagher than the requirement, increase Darkvision level, and decrease Darkvision XP by requirement.
         DVXP = DVXP - DVREQ;
-        document.getElementById("DVREQ").innerHTML = prettify(DVREQ);   //remove decimals from Darkvision level up requirement.
-        document.getElementById("DVLVL").innerHTML = DVLVL;
+        document.getElementById("DVREQ").innerHTML = prettify(DVREQ);   //remove decimals from Darkvision level up requirement, and show DVREQ to the HTML document
+        document.getElementById("DVLVL").innerHTML = DVLVL; //Replace 0 in HTML document under DVLVL with DVLVL
     }
 }
-
-//Buy next level of search skill
-function Buy_AutoSearch() {
-    var DVREQ = Math.floor(2 * Math.pow(1.08, DVLVL));  //finds the level up requirement
-    if (DVXP >= DVREQ) {
-        DVLVL = DVLVL + 1;  //If the Darkvision XP is hagher than the requirement, increase Darkvision level, and decrease Darkvision XP by requirement.
-        DVXP = DVXP - DVREQ;
-        document.getElementById("DVREQ").innerHTML = prettify(DVREQ);   //remove decimals from Darkvision level up requirement.
-        document.getElementById("DVLVL").innerHTML = DVLVL;
-}    } 
 
 //auto calls function every 100ms 
 window.setInterval(function () {
@@ -53,48 +43,44 @@ window.setInterval(function () {
 //Atack and Weapon
 
 var Damage = 0 //Damage done
-var attacks = 0; //Attack XP from Creatures
+var AXP = 1; //Attack XP from Creatures
 var ALVL = 0; //Attack level
 var ACD = 0; //Attack cooldown
 
 //WeaponChoice
 function WeaponChoice1() {
     Damage = 6;
-    ACD = 15;
+    ACD = 3000;
     AttackShower();
     WeaponHider();
 }
 
 function WeaponChoice2() {
     Damage = 2;
-    ACD = 5;
+    ACD = 1000;
     AttackShower();
     WeaponHider();
 }
 
 //Attack
 function tryk(number) {
-    attacks = attacks + number/5;   //gets the amount of XP gained from each click.
-    
-    Damage = Damage * Math.pow(1.05, ALVL) //Damage increses with attack level
-    
-    
-    
-    }
+    AXP = AXP + number/5;
+    document.getElementById("AXP").innerHTML = prettify(AXP);
         
-    if (attacks >= 10) {
-       ButtonShower();
-    }
+if (AXP >= 10) {
+	ButtonShower();
+	}
+}
 
-var amount_autohitters = 0; //Atta
-var cost_autohitters = 10;
+var amount_autohitters = 0; //Attack level
+var cost_autohitters = 10; //Attack levelup requirement
 
 // buy autohitters. 
 function buy_auto_1() {
     var cost_autohitters = Math.floor(10 * Math.pow(1.08, amount_autohitters));
-    if (attacks >= cost_autohitters) {
+    if (AXP >= cost_autohitters) {
         amount_autohitters = amount_autohitters + 1;
-        attacks = attacks - cost_autohitters;
+        AXP = AXP - cost_autohitters;
         document.getElementById("attacks").innerHTML = prettify(attacks);
         document.getElementById("amount_autohitters").innerHTML = amount_autohitters;
     }
@@ -104,7 +90,7 @@ function buy_auto_1() {
 
 //auto calls function every 100ms 
 window.setInterval(function () {
-    tryk(amount_autohitters / 10);
+    tryk(amount_autohitters / 5);
 }, 100);
 
 
@@ -127,6 +113,12 @@ window.setInterval(function () {
 
 
 //Background Processes
+
+var TimerVar
+
+function Timer() {
+	TimerVar = setTimeout(tryk(attacks), ACD)
+}
 
 function WeaponShower() {
     var WeaponChoiceEvent = document.getElementById('WeaponChoiceEvent');
