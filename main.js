@@ -16,6 +16,7 @@ function Search(number) {
 	if (DVLVL == 2 && Damage == 0) {
         WeaponShower();
 	}
+
 }
 
 // buy autosearches. 
@@ -47,6 +48,8 @@ var AXP = 0; //Attack XP from Creatures
 var ALVL = 0; //Attack level
 var ACD = 0; //Attack cooldown
 var DamageDone = 0; //Damage done to creatures
+var attack_cd = 0; //Timer or Cooldown
+
 
 //WeaponChoice
 function WeaponChoice1() {
@@ -65,11 +68,31 @@ function WeaponChoice2() {
 
 //Attack
 function tryk(number) {
+    if (attack_cd < 1){
+        AXP = AXP + number/5;
+        cooldown()
+        document.getElementById("AXP").innerHTML = prettify(AXP);
+        
+        
+        DamageDone = DamageDone + Damage
+        Document.getElementById("DamageDone").innerHTML = prettify(DamageDone)
+        
+    }
+    
+if (AXP >= 10) {
+	ButtonShower();
+	}
+}
+
+function tryk_auto(number) {
     AXP = AXP + number/5;
     document.getElementById("AXP").innerHTML = prettify(AXP);
         
+        
     DamageDone = DamageDone + Damage
     Document.getElementById("DamageDone").innerHTML = prettify(DamageDone)
+        
+    
     
 if (AXP >= 10) {
 	ButtonShower();
@@ -92,25 +115,27 @@ function buy_auto_1() {
     document.getElementById("cost_autohitters").innerHTML = nextcost;
 }
 
+//timer 
+function cooldown(){
+    attack_cd = attack_cd + 5;
+}
+function cd(){
+    attack_cd = attack_cd - 1;
+}
+
 //auto calls function every 100ms 
 window.setInterval(function () {
-    tryk(amount_autohitters / 5);
+    tryk_auto(amount_autohitters / 5);
+}, 100);
+
+window.setInterval(function () {
+    cd();
 }, 100);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+function debug(){
+    
+}
 
 
 
