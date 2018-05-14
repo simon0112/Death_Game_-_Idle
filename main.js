@@ -43,9 +43,10 @@ window.setInterval(function () {
 //Atack and Weapon
 
 var Damage = 0 //Damage done
-var AXP = 1; //Attack XP from Creatures
+var AXP = 0; //Attack XP from Creatures
 var ALVL = 0; //Attack level
 var ACD = 0; //Attack cooldown
+var DamageDone = 0;
 
 //WeaponChoice
 function WeaponChoice1() {
@@ -67,6 +68,9 @@ function tryk(number) {
     AXP = AXP + number/5;
     document.getElementById("AXP").innerHTML = prettify(AXP);
         
+    DamageDone = DamageDone + Damage
+    Document.getElementById("DamageDone").innerHTML = prettify(DamageDone)
+    
 if (AXP >= 10) {
 	ButtonShower();
 	}
