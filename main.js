@@ -3,7 +3,7 @@
 var DVXP = 0;
 var DVLVL = 0;
 var SLVL = 1;
-
+var Damage = 0;
 //Search the darkness
 function Search(number) {
     DVXP = DVXP + number/5;
@@ -13,7 +13,7 @@ function Search(number) {
         AutoSearchShower();
 	}
 	
-	if (DVLVL == 2 && Damage == 0) {
+	if (DVLVL >= 2 && Damage == 0) {
         WeaponShower();
 	}
 
@@ -43,7 +43,7 @@ window.setInterval(function () {
 
 //Atack and Weapon
 
-var Damage = 0 //Damage done
+//var Damage = 0 //Damage done
 var AXP = 0; //Attack XP from Creatures
 var ALVL = 0; //Attack level
 var ACD = 0; //Attack cooldown
@@ -53,15 +53,15 @@ var attack_cd = 0; //Timer or Cooldown
 
 //WeaponChoice
 function WeaponChoice1() {
-    Damage = 6;
-    ACD = 3000;
+    Damage += 6;
+    ACD += 3000;
     AttackShower();
     WeaponHider();
 }
 
 function WeaponChoice2() {
-    Damage = 2;
-    ACD = 1000;
+    Damage += 2;
+    ACD += 1000;
     AttackShower();
     WeaponHider();
 }
