@@ -13,7 +13,7 @@ function Search(number) {
         AutoSearchShower();
 	}
 	
-	if (DVLVL >= 2 && Damage == 0) {
+	if (DVLVL >= 2 && Damage === 0) {
         WeaponShower();
 	}
 
