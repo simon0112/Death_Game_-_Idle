@@ -173,11 +173,11 @@ function AutoHitHider() {
     var Button1 = document.getElementById('Autohitter');
     
     //get buttons display property
-    var displaySetting =Autohitter.style.display;
+    var displaySetting = Autohitter.style.display;
     
     if (displaySetting == 'block') {
         //If button to buy autohitter is visible hide it.
-        Button1.style.display = 'none';
+        Autohitter.style.display = 'none';
     }
 }
 
@@ -190,7 +190,7 @@ function AutoHitShower() {
     
     if (displaySetting == 'none') {
         //if button is invisible, make visible
-        Button1.style.display = 'block';
+        Autohitter.style.display = 'block';
     }
 }
 
