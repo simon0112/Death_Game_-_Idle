@@ -3,5 +3,7 @@
 body{
     margin: 0;
     font-family: Montserrat;
-    background: lightblue;
+    background-color: #2d2d2d;
+    color: floralwhite;
+    line-height: 1.3;
 }
