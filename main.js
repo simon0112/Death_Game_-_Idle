@@ -90,12 +90,16 @@ function tryk_auto(number) {
         
         
     DamageDone = DamageDone + Damage
+<<<<<<< HEAD
+    Document.getElementById("DamageDone").innerHTML = "DamageDone"
+=======
     Document.getElementById("DamageDone").innerHTML = prettify(DamageDone)
         
     
+>>>>>>> 5a095073ce769ca582709fdf40e360057af4add7
     
 if (AXP >= 10) {
-	ButtonShower();
+	AutoHitShower();
 	}
 }
 
@@ -193,29 +197,29 @@ function AttackShower() {
     }
 }
 
-function ButtonHider() {
+function AutoHitHider() {
     //get the button
     var Button1 = document.getElementById('Autohitter');
     
     //get buttons display property
-    var displaySetting = Button1.style.display;
+    var displaySetting = Autohitter.style.display;
     
     if (displaySetting == 'block') {
         //If button to buy autohitter is visible hide it.
-        Button1.style.display = 'none';
+        Autohitter.style.display = 'none';
     }
 }
 
-function ButtonShower() {
+function AutoHitShower() {
     //get the button
     var Button1 = document.getElementById('Autohitter');
     
     //Get buttons displat property
-    var displaySetting = Button1.style.display;
+    var displaySetting = Autohitter.style.display;
     
     if (displaySetting == 'none') {
         //if button is invisible, make visible
-        Button1.style.display = 'block';
+        Autohitter.style.display = 'block';
     }
 }
 
