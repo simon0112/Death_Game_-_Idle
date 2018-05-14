@@ -69,10 +69,10 @@ function tryk(number) {
     document.getElementById("AXP").innerHTML = prettify(AXP);
         
     DamageDone = DamageDone + Damage
-    Document.getElementById("DamageDone").innerHTML = prettify(DamageDone)
+    Document.getElementById("DamageDone").innerHTML = "DamageDone"
     
 if (AXP >= 10) {
-	ButtonShower();
+	AutoHitShower();
 	}
 }
 
@@ -168,12 +168,12 @@ function AttackShower() {
     }
 }
 
-function ButtonHider() {
+function AutoHitHider() {
     //get the button
     var Button1 = document.getElementById('Autohitter');
     
     //get buttons display property
-    var displaySetting = Button1.style.display;
+    var displaySetting =Autohitter.style.display;
     
     if (displaySetting == 'block') {
         //If button to buy autohitter is visible hide it.
@@ -181,12 +181,12 @@ function ButtonHider() {
     }
 }
 
-function ButtonShower() {
+function AutoHitShower() {
     //get the button
     var Button1 = document.getElementById('Autohitter');
     
     //Get buttons displat property
-    var displaySetting = Button1.style.display;
+    var displaySetting = Autohitter.style.display;
     
     if (displaySetting == 'none') {
         //if button is invisible, make visible
