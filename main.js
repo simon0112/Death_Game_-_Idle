@@ -274,4 +274,4 @@ function reset() {
     document.getElementById("amount_autohitters").innerHTML = amount_autohitters;
     
     document.getElementById("cost_autohitters").innerHTML = cost_autohitters;
-}}
+}
