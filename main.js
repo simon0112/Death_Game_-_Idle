@@ -46,7 +46,7 @@ var Damage = 0 //Damage done
 var AXP = 0; //Attack XP from Creatures
 var ALVL = 0; //Attack level
 var ACD = 0; //Attack cooldown
-var DamageDone = 0;
+var DamageDone = 0; //Damage done to creatures
 
 //WeaponChoice
 function WeaponChoice1() {
