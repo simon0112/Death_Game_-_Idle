@@ -115,7 +115,6 @@ function buy_auto_1() {
         //document.getElementById("attacks").innerHTML = prettify(attacks);
         
         document.getElementById("amount_autohitters").innerHTML = amount_autohitters;
-        alert("halp");
         
     }
     var nextcost = Math.floor(10 * Math.pow(1.08, amount_autohitters));
