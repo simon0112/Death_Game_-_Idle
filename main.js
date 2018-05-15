@@ -74,7 +74,17 @@ function tryk(number) {
         cooldown();
         document.getElementById("AXP").innerHTML = prettify(AXP);
         DamageDone = DamageDone + Damage;
+        if (enemyhealth > 0){
+            enemyhealth = enemyhealth - Damage;
+        }
+        if (enemyhealth <= 0){
+            creature();
+            
+        }
+        
         document.getElementById("DamageDone").innerHTML = prettify(DamageDone);
+        document.getElementById("enemyhealth").innerHTML = prettify(enemyhealth)
+        document.getElementById("enemymaxhealth").innerHTML = prettify(enemymaxhealth)
         
     }
     
@@ -89,9 +99,14 @@ function tryk_auto(number) {
     
     // the amout of damage done by auto hitter
     DamageDone = DamageDone + Damage / 5; 
+    if (enemyhealth > 0){
+        enemyhealth = enemyhealth - Damage / 5;
+    }
     
-    document.getElementById("DamageDone").innerHTML = "DamageDone";
+    
     document.getElementById("DamageDone").innerHTML = prettify(DamageDone);
+    document.getElementById("enemyhealth").innerHTML = prettify(enemyhealth)
+    document.getElementById("enemymaxhealth").innerHTML = prettify(enemymaxhealth)
     
     
 if (AXP >= 10) {
@@ -112,7 +127,9 @@ function buy_auto_1() {
         AXP = AXP - cost_autohitters;
         
         //this is not exist in HTML
+        
         //document.getElementById("attacks").innerHTML = prettify(attacks);
+        //*******
         
         document.getElementById("amount_autohitters").innerHTML = amount_autohitters;
         
@@ -124,7 +141,7 @@ function buy_auto_1() {
 
 //Combat
 var enemymaxhealth = 20;
-
+var enemyhealth = 0;
 
 function creature(){
     if (Math.random > 0.9){
@@ -133,11 +150,12 @@ function creature(){
     else{
         enemymaxhealth = 20;
     }
+    enemyhealth = enemymaxhealth;
 }
 
 
 function combat(){
-    while (enemy_hp > 0){
+    while (enemyhealth > 0 && enemyhealth < enemymaxhealth){
         if (Math.random() > 0.8){
             Health -= 1;
         }
