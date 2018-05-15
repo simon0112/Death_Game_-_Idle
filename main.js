@@ -122,11 +122,13 @@ function buy_auto_1() {
 }
 
 //timer 
-function cooldown(){
+function cooldown() {
     attack_cd = attack_cd + 5;
 }
-function cd(){
-    attack_cd = attack_cd - 1;
+function cd() {
+    if (attack_cd > 0){
+        attack_cd = attack_cd - 1;
+    }
 }
 
 //auto calls function every 100ms 
