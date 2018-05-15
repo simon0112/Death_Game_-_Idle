@@ -6,7 +6,7 @@ var SLVL = 1;
 var Damage = 0;
 //Search the darkness
 function Search(number) {
-    DVXP = DVXP + number/5;
+    DVXP = DVXP + number / 5;
     document.getElementById("DVXP").innerHTML = prettify(DVXP);
     
     if (DVXP >= 2) {
@@ -32,8 +32,8 @@ function Buy_AutoSearch() {
 
 //auto calls function every 100ms 
 window.setInterval(function () {
-    Search(DVLVL/10);
-}, 100) 
+    Search(DVLVL / 10);
+},100);
 
 
 
@@ -79,13 +79,13 @@ function tryk(number) {
         
     }
     
-if (AXP >= 10) {
-	ButtonShower();
+    if (AXP >= 10) {
+	   ButtonShower();
 	}
 }
 
 function tryk_auto(number) {
-    AXP = AXP + number/5;
+    AXP = AXP + number / 5;
     document.getElementById("AXP").innerHTML = prettify(AXP);
         
         
