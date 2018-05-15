@@ -64,18 +64,17 @@ function WeaponChoice2() {
     ACD += 1000;
     AttackShower();
     WeaponHider();
+    //alert("help");
 }
 
 //Attack
 function tryk(number) {
     if (attack_cd < 1){
         AXP = AXP + number/5;
-        cooldown()
+        cooldown();
         document.getElementById("AXP").innerHTML = prettify(AXP);
-        
-        
-        DamageDone = DamageDone + Damage
-        Document.getElementById("DamageDone").innerHTML = prettify(DamageDone)
+        DamageDone = DamageDone + Damage;
+        document.getElementById("DamageDone").innerHTML = prettify(DamageDone);
         
     }
     
@@ -86,18 +85,21 @@ if (AXP >= 10) {
 
 function tryk_auto(number) {
     AXP = AXP + number/5;
-    document.getElementById("AXP").innerHTML = prettify(AXP);
-        
-        
-    DamageDone = DamageDone + Damage
+    document.getElementById("AXP").innerHTML = prettify(AXP); 
     
-    Document.getElementById("DamageDone").innerHTML = "DamageDone"
-    Document.getElementById("DamageDone").innerHTML = prettify(DamageDone)
+    // the amout of damage done by auto hitter
+    DamageDone = DamageDone + Damage / 5; 
+    
+    document.getElementById("DamageDone").innerHTML = "DamageDone";
+    document.getElementById("DamageDone").innerHTML = prettify(DamageDone);
+    
     
 if (AXP >= 10) {
 	AutoHitShower();
 	}
 }
+
+
 
 var amount_autohitters = 0; //Attack level
 var cost_autohitters = 10; //Attack levelup requirement
@@ -125,7 +127,9 @@ function cd(){
 
 //auto calls function every 100ms 
 window.setInterval(function () {
-    tryk_auto(amount_autohitters / 5);
+    if (amount_autohitters > 0){
+        tryk_auto(amount_autohitters / 5);
+    }
 }, 100);
 
 window.setInterval(function () {
