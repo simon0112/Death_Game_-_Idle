@@ -110,6 +110,7 @@ function buy_auto_1() {
     if (AXP >= cost_autohitters) {
         amount_autohitters = amount_autohitters + 1;
         AXP = AXP - cost_autohitters;
+        
         //this is not exist in HTML
         //document.getElementById("attacks").innerHTML = prettify(attacks);
         
