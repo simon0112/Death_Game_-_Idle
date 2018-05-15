@@ -80,7 +80,7 @@ function tryk(number) {
     }
     
 if (AXP >= 10) {
-	ButtonShower();
+	AutoHitShower();
 	}
 }
 
@@ -90,13 +90,9 @@ function tryk_auto(number) {
         
         
     DamageDone = DamageDone + Damage
-<<<<<<< HEAD
-    Document.getElementById("DamageDone").innerHTML = "DamageDone"
-=======
-    Document.getElementById("DamageDone").innerHTML = prettify(DamageDone)
-        
     
->>>>>>> 5a095073ce769ca582709fdf40e360057af4add7
+    Document.getElementById("DamageDone").innerHTML = "DamageDone"
+    Document.getElementById("DamageDone").innerHTML = prettify(DamageDone)
     
 if (AXP >= 10) {
 	AutoHitShower();
@@ -215,11 +211,11 @@ function AutoHitShower() {
     var Button1 = document.getElementById('Autohitter');
     
     //Get buttons displat property
-    var displaySetting = Autohitter.style.display;
+    var displaySetting = Button1.style.display;
     
     if (displaySetting == 'none') {
         //if button is invisible, make visible
-        Autohitter.style.display = 'block';
+        Button1.style.display = 'block';
     }
 }
 
