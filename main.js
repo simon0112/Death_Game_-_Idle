@@ -33,7 +33,7 @@ function Buy_AutoSearch() {
 //auto calls function every 100ms 
 window.setInterval(function () {
     Search(DVLVL/10);
-}, 100) 
+}, 100)
 
 
 
