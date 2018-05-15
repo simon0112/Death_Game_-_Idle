@@ -54,14 +54,14 @@ var attack_cd = 0; //Timer or Cooldown
 //WeaponChoice
 function WeaponChoice1() {
     Damage += 6;
-    ACD += 3000;
+    ACD += 30;
     AttackShower();
     WeaponHider();
 }
 
 function WeaponChoice2() {
     Damage += 2;
-    ACD += 1000;
+    ACD += 10;
     AttackShower();
     WeaponHider();
     //alert("help");
@@ -123,7 +123,7 @@ function buy_auto_1() {
 
 //timer 
 function cooldown() {
-    attack_cd = attack_cd + 5;
+    attack_cd = attack_cd + ACD;
 }
 function cd() {
     if (attack_cd > 0){
@@ -152,12 +152,6 @@ function debug(){
 
 
 //Background Processes
-
-var TimerVar
-
-function Timer() {
-	TimerVar = setTimeout(tryk(attacks), ACD)
-}
 
 function WeaponShower() {
     var WeaponChoiceEvent = document.getElementById('WeaponChoiceEvent');
