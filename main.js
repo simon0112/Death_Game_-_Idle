@@ -95,10 +95,10 @@ if (AXP >= 10) {
 
 function tryk_auto(number) {
     AXP = AXP + number/5;
-    document.getElementById("AXP").innerHTML = prettify(AXP); 
+    document.getElementById("AXP").innerHTML = prettify(AXP);
     
     // the amout of damage done by auto hitter
-    DamageDone = DamageDone + Damage / 5; 
+    DamageDone = DamageDone + Damage / 5;
     if (enemyhealth > 0){
         enemyhealth = enemyhealth - Damage / 5;
     }
@@ -143,6 +143,7 @@ function buy_auto_1() {
 var enemymaxhealth = 20;
 var enemyhealth = 0;
 
+// decides the creatures health, boss or no boss
 function creature(){
     if (Math.random > 0.9){
         enemymaxhealth = 50;
@@ -153,7 +154,7 @@ function creature(){
     enemyhealth = enemymaxhealth;
 }
 
-
+// Creatures attacking system
 function combat(){
     while (enemyhealth > 0 && enemyhealth < enemymaxhealth){
         if (Math.random() > 0.8){
