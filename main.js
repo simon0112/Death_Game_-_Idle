@@ -121,6 +121,35 @@ function buy_auto_1() {
     document.getElementById("cost_autohitters").innerHTML = nextcost;
 }
 
+
+//Combat
+var enemymaxhealth = 20;
+
+
+function creature(){
+    if (Math.random > 0.9){
+        enemymaxhealth = 50;
+    }
+    else{
+        enemymaxhealth = 20;
+    }
+}
+
+
+function combat(){
+    while (enemy_hp > 0){
+        if (Math.random() > 0.8){
+            Health -= 1;
+        }
+    }
+}
+
+
+
+
+
+
+
 //timer 
 function cooldown() {
     attack_cd = attack_cd + 5;
