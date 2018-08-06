@@ -26,10 +26,10 @@
             <div id="WeaponChoiceEvent" style="display: none">
             While looking around you find a stone, and a stick. Choose your Weapon!
                 <br /><p></p>
-            <button class="knap" onclick="WeaponChoice1()">Pick up the stone.</button>
+            <button class="knap" onclick="WeaponChoice1(), CalcHP()">Pick up the stone.</button>
                 <br />
                 <p></p>
-            <button class="knap" onclick="WeaponChoice2()">Pick up the stick.</button>
+            <button class="knap" onclick="WeaponChoice2(), CalcHP()">Pick up the stick.</button>
             </div>
         
             
@@ -37,7 +37,8 @@
         
         
         <div id="Attacks" style="display: none">
-        <meter min="0" max="30" value="Health">test</meter>
+        
+        HP: <span id="HP">0</span>
         <br />
         As you Pick up the weapon, you see giant rats!
         <br />
@@ -52,7 +53,7 @@
 		<br /><br /><br /><br />
         
         <div id="Autohitter" style="display: none">
-        It's so easy attacking, it's like you could do it in your sleep!<br />
+        It's starting to become so easy attacking, it's like you could do it in your sleep!<br />
 		<button class="knap" onclick="buy_auto_1()">Buy autohitter</button>
 		<br />
 		Attack level: <span id="amount_autohitters">0</span>

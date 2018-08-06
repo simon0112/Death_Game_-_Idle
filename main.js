@@ -1,3 +1,11 @@
+//Effects
+function LoseHealth(enemyDamage){
+    HP = HP - enemyDamage
+}
+
+
+
+
 //Foreground Processes
 
 var DVXP = 0;
@@ -115,6 +123,18 @@ if (AXP >= 10) {
 }
 
 
+//Health points
+var HP = 0
+var vitality = 10
+var VLVL = 0
+function CalcHP() {
+    HP = vitality * 10;
+}
+if(LoseHealth) {
+   Math.floor(10 * Math.pow(1.08, VLVL)) ;
+}
+
+
 
 var amount_autohitters = 0; //Attack level
 var cost_autohitters = 10; //Attack levelup requirement
@@ -142,28 +162,37 @@ function buy_auto_1() {
 //Combat
 var enemymaxhealth = 20;
 var enemyhealth = 0;
+var enemyDamage = 0;
 
 // decides the creatures health, boss or no boss
 function creature(){
     if (Math.random > 0.9){
         enemymaxhealth = 50;
+        enemyDamage = Math.random * 10
     }
+    
     else{
         enemymaxhealth = 20;
+        enemyDamage = Math.random * 2
     }
+    
     enemyhealth = enemymaxhealth;
 }
+
+/*
 
 // Creatures attacking system
 function combat(){
     while (enemyhealth > 0 && enemyhealth < enemymaxhealth){
         if (Math.random() > 0.8){
-            Health -= 1;
+            LoseHealth(enemyDamage);
         }
     }
 }
 
+SOMETHING ABOUT THIS MAKES THE LIVE SHOWCASE CRASH
 
+*/
 
 
 
