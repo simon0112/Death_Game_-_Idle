@@ -165,11 +165,9 @@ function buy_auto_1() {
 //Combat
 var enemymaxhealth = 20;
 var enemyhealth = 0;
-<<<<<<< HEAD
 var enemyDamage = 0;
-=======
 var Health = 30;
->>>>>>> 923862c51b6e626fb7c3642bce9bc3c3840c1bbf
+
 
 // decides the creatures health, boss or no boss
 function creature(){
@@ -192,12 +190,9 @@ function creature(){
 function combat(){
     while (enemyhealth > 0 && enemyhealth < enemymaxhealth){
         if (Math.random() > 0.8){
-<<<<<<< HEAD
-            LoseHealth(enemyDamage);
-=======
+            LoseHealth(enemyDamage){
             Health -= 1;
             document.getElementById("Health").innerHTML = Health;
->>>>>>> 923862c51b6e626fb7c3642bce9bc3c3840c1bbf
         }
     }
 }
