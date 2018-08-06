@@ -101,20 +101,23 @@ if (AXP >= 10) {
 	}
 }
 
-function tryk_auto(number) {
-    AXP = AXP + number/5;
-    document.getElementById("AXP").innerHTML = prettify(AXP);
-    
+function tryk_auto(number) {    
     // the amout of damage done by auto hitter
-    DamageDone = DamageDone + Damage / 5;
+    
     if (enemyhealth > 0){
+        AXP = AXP + number/5;
+        DamageDone = DamageDone + Damage / 5;
         enemyhealth = enemyhealth - Damage / 5;
+        if (enemyhealth < 0){
+            enemyhealth = 0;
+        }
     }
     
     
     document.getElementById("DamageDone").innerHTML = prettify(DamageDone);
     document.getElementById("enemyhealth").innerHTML = prettify(enemyhealth)
     document.getElementById("enemymaxhealth").innerHTML = prettify(enemymaxhealth)
+    document.getElementById("AXP").innerHTML = prettify(AXP);
     
     
 if (AXP >= 10) {
@@ -162,7 +165,11 @@ function buy_auto_1() {
 //Combat
 var enemymaxhealth = 20;
 var enemyhealth = 0;
+<<<<<<< HEAD
 var enemyDamage = 0;
+=======
+var Health = 30;
+>>>>>>> 923862c51b6e626fb7c3642bce9bc3c3840c1bbf
 
 // decides the creatures health, boss or no boss
 function creature(){
@@ -185,7 +192,12 @@ function creature(){
 function combat(){
     while (enemyhealth > 0 && enemyhealth < enemymaxhealth){
         if (Math.random() > 0.8){
+<<<<<<< HEAD
             LoseHealth(enemyDamage);
+=======
+            Health -= 1;
+            document.getElementById("Health").innerHTML = Health;
+>>>>>>> 923862c51b6e626fb7c3642bce9bc3c3840c1bbf
         }
     }
 }
@@ -204,7 +216,7 @@ function cooldown() {
 }
 function cd() {
     if (attack_cd > 0){
-        attack_cd = attack_cd - 1;
+        attack_cd = attack_cd - 10;
     }
 }
 
@@ -219,10 +231,13 @@ window.setInterval(function () {
     cd();
 }, 100);
 
+window.setInterval(function () {
+    combat();
+}, 100);
 
-function debug(){
-    
-}
+//function debug(){
+//    alert(enemyhealth)
+//}
 
 
 
