@@ -1,5 +1,7 @@
 //New Javascript, better setup of different actions in game.
 
+//TODO: FÅ KODEN TIL AT VIRKE
+
 //Variables, ALL variables
 
     //Level and Experience variables
@@ -386,3 +388,5 @@ SOMETHING ABOUT THIS MAKES THE LIVE SHOWCASE CRASH
 
 */
 //Doesn't work ends
+
+//FÅ KODEN TIL AT VIRKE
