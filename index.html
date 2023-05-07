@@ -1,84 +1,40 @@
 <html>
-	<head>
-		<link rel="stylesheet" type="text/css" href="style.css" />
-	</head>
-	<body onload="load(),">
-        <div id="MainStory1">
-            You wake up not being able to see anything, you hear a robotic voice, "Integration complete, trial begun". It might be an idea to search for some kind of weapon.<br />
-            <button class="knap" onclick="Search(SLVL)">Search the darkness</button>
-            <br />
-            Darkvision XP: <span id="DVXP">0</span>
-            
-            <br /><br /><br /><br />
-            
-            <div id="AutoSearch" style="display: none">
-            As your vision gets better, you have an easier time looking around.
-            <br />
-            <button class="knap" onclick="Buy_AutoSearch()">Level up darkvision</button>
-            <br />
-            Darkvision level: <span id="DVLVL">0</span>
-            <br />
-            Darkvision levelup requirement: <span id="DVREQ">0</span>
-            </div>
-            
-            <br /><br /><br /><br />
-            
-            <div id="WeaponChoiceEvent" style="display: none">
-            While looking around you find a stone, and a stick. Choose your Weapon!
-                <br /><p></p>
-            <button class="knap" onclick="WeaponChoice1(), CalcHP()">Pick up the stone.</button>
-                <br />
-                <p></p>
-            <button class="knap" onclick="WeaponChoice2(), CalcHP()">Pick up the stick.</button>
-            </div>
-        
-            
-        <br /><br /><br /><br /><br /><br />
-        
-        
-        <div id="Attacks" style="display: none">
-        
-        HP: <span id="HP">0</span>
-        <br />
-        As you Pick up the weapon, you see giant rats!
-        <br />
-        <button id="AttackButton" class="knap" onclick="tryk(1)">Attack!</button>
-		<br />
-		Attack XP: <span id="AXP">0</span>
-        <br />
-        Rat: <span id="enemyhealth">0</span> / <span id="enemymaxhealth">0</span>
-        <br />
-        Damage Done: <span id="DamageDone">0</span>
-        
-		<br /><br /><br /><br />
-        
-        <div id="Autohitter" style="display: none">
-        It's starting to become so easy attacking, it's like you could do it in your sleep!<br />
-		<button class="knap" onclick="buy_auto_1()">Buy autohitter</button>
-		<br />
-		Attack level: <span id="amount_autohitters">0</span>
-		<br />
-		Attack level requirement: <span id="cost_autohitters">10</span>
-		</div>
-        
-        </div>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body onload="load()">
+    <div id="MainStory">
+        You wake up not being able to see anything, you hear a robotic voice, "Integration complete, trial begun". It might be an idea to search for some kind of weapon.<br />
     </div>
-            
-		<br /><br /><br /><br /><br />
-        
-		
-		<button class="knap" onclick="save()">Save game</button>
-		
-		<br /><br />
-		
-		<button class="knap" onclick="load()">Load game</button>
-		
-		<br /><br />
-		
-		<button class="knap" onclick="reset()">Lay down to die</button>
-		<button class="knap" onclick="debug()">debug</button>
-		
-		<script type="text/javascript" src="main.js"></script>
-    
-	</body>
+
+    <button class="knap" onclick="activate('DV')">Practice Darkvision</button>
+
+    <div id="DVProgress">
+        <div id="DVBar"></div>
+    </div>
+
+    Darkvision level: <span id="DVLvl">0</span>
+
+    <div id="debug">hello</div>
+
+    <br /><br /><br /><br /><br />
+
+
+    <button class="knap" onclick="save()">Save game</button>
+
+    <br /><br />
+
+    <button class="knap" onclick="load()">Load game</button>
+
+    <br /><br />
+
+    <button class="knap" onclick="reset()">Lay down to die</button>
+    <button class="knap" onclick="debug()">debug</button>
+
+    <script type="text/javascript" src="main.js"></script>
+
+</body>
+
 </html>

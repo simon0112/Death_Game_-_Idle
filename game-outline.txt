@@ -1,0 +1,8 @@
+Game should be like groundhog life, knight progression, or others in the vein.
+Most excellent example would be Cavernous 2 (https://nucaranlaeg.github.io/incremental/CavernousII/)
+
+
+This means timers for every object such that they level up over time, (example implemented with darkvision)
+
+Story needs to be planned out more fully, including what kind of skills one would get
+Stats needs to be decided on as well, should be made simpler than earlier, possibly just 4 stats?
